@@ -1,0 +1,21 @@
+server:
+  port: 8083
+  
+spring:
+  application:
+    name: CLOUD-GATEWAY
+
+  cloud:
+    gateway:
+      routes:
+      - id: USER-SERVICE
+        uri: lb://USER-SERVICE
+        predicates:
+        - Path=/users/**
+      
+      - id: ORDER-SERVICE
+        uri: lb://ORDER-SERVICE
+        predicates:
+        - Path=/orders/**
+            
+          
