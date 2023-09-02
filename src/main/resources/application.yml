@@ -1,5 +1,5 @@
 server:
-  port: 8083
+  port: 8080
   
 spring:
   application:
@@ -17,5 +17,11 @@ spring:
         uri: lb://ORDER-SERVICE
         predicates:
         - Path=/orders/**
+        
+      - id: PRODUCT-SERVICE
+        uri: lb://PRODUCT-SERVICE
+        predicates:
+        - Path=/products/**
+          
             
           
